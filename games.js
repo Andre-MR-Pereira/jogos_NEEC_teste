@@ -3,6 +3,16 @@
  * https://codepen.io/EightArmsHQ/pen/HJsav
  */
 
+var typing_text = [
+    "O NEEC é uma associação sem fins lucrativos que reúne os estudantes de MEEC do IST. Somos formados por alunos que, através do seu trabalho voluntário, proporcionam diversas atividades aos seus colegas.",
+    "No NEEC procuramos ajudar os alunos a intregarem-se no mercado de trabalho e dar formação extra-curricular. Organizamos workshops, estágios de verão, OpenDays, organizamos a drive do curso e muito mais!",
+    "O NEEC quer ajudar a complementar o normal percurso escolar, não só dos alunos de Eletrotecnia, como também de todos do IST. Começámos em 2003, e já por quase década e meia temos vindo a crescer para te ajudar.",
+    "As NEECTalks são um projeto que consiste na realização de podcasts, sobre tecnologia, inovação e empreendedorismo na engenharia. Pretendemos apresentar alunos, professores, investigadores, empresários, entre outros.",
+    "O IST Summer Internships foi implementado tendo em vista facilitar a aproximação entre os alunos do IST e as empresas. Este programa conta com o apoio do Técnico através do Núcleo de Parcerias Empresariais.",
+    "Um estágio constitui uma inegável mais-valia no percurso académico de um estudante do Ensino Superior, capacitando-o de valências distintas e complementares à formação adquirida no Instituto Superior Técnico.",
+    "Os núcleos que pertencem ao IST Summer Internships têm como principal objetivo a dinamização de várias atividades que visam reforçar a formação curricular dos estudantes, através de, formações, programas de estágios, etc.",
+    "Um grupo de estudantes do IST, cujo principal objetivo é organizar um evento gratuito e aberto a uma forte comunidade de estudantes, com a intenção de diminuir a distância entre o mundo empresarial e a vida universitária."
+]
 // The base speed per character
 time_setting = 30;
 // How much to 'sway' (random * this-many-milliseconds)
@@ -11,6 +21,9 @@ random_setting = 100;
 input_text = "How fast can you type?";
 // Where to fill up
 target_setting = $("#output");
+
+$("#input_text").text(typing_text[Math.floor(Math.random() * typing_text.length)]);
+
 // Launch that function!
 type(input_text, target_setting, 0, time_setting, random_setting);
 
