@@ -1,4 +1,29 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <link rel="stylesheet" href="games.css">
+</head>
+
+<body onload="start_card_game()">
+    <div class="card_game">
+        <div class="stats">
+            <div class="timer">
+                <p>
+                    Tempo:
+                    <a id="tempo"></a> segundos
+                </p>
+            </div>
+            <div class="moves">
+                <p>
+                    Movimentos:
+                    <a id="movimentos"></a>
+                </p>
+            </div>
+        </div>
+        <div id="game"></div>
+    </div>
+    <script src="games.js"></script>
+</body>
+
 </html>
