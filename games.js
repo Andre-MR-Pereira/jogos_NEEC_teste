@@ -49,7 +49,7 @@ async function board_state(matched, pairs, ids) {
         final_time = Date.now() - initial_time;
         final_moves = moves;
         var item = document.getElementsByClassName("stats");
-        item[item.length - 1].innerHTML += '<div class="final">RESULTADOS FINAIS</div>';
+        item[item.length - 1].innerHTML += '<div class="final">RESULTADOS FINAIS: ' + final_time + ' ms</div>';
         document.getElementById("tempo").innerHTML = timeToString(final_time);
         document.getElementById("movimentos").innerHTML = final_moves;
         document.getElementById("legenda_tempo").innerHTML = "";
@@ -59,17 +59,17 @@ async function board_state(matched, pairs, ids) {
 function start_card_game() {
     shuffle(cards);
     var i = 0;
-    for (var i = 0; i < cards.length / 3; i++) {
+    for (var i = 0; i < 2; i++) {
         document.getElementById('game').innerHTML += '<div class="row" name="row">';
-        for (var j = 0; j < 3; j++) {
+        for (var j = 0; j < 12; j++) {
             var item = document.getElementsByName("row");
             item[item.length - 1].innerHTML += '<div class="column"><div class="card">';
             var item = document.getElementsByClassName("card");
-            item[item.length - 1].id = (i * 3) + j;
+            item[item.length - 1].id = (i * 12) + j;
             item[item.length - 1].innerHTML += '<p name="marca" id="p0">NEEC</p>';
             item[item.length - 1].innerHTML += '<img src="./assets/cards/0.png" style="display: none;" id="i0" name="img">';
             var item = document.getElementsByName("img");
-            item[item.length - 1].src = "./assets/cards/" + cards[(i * 3) + j] + ".png";
+            item[item.length - 1].src = "./assets/cards/" + cards[(i * 12) + j] + ".png";
             var item = document.getElementsByName("row");
             item[item.length - 1].innerHTML += '</div></div>';
         }
