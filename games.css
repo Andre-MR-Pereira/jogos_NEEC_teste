@@ -6,6 +6,26 @@ body{
   background-color:rgb(46, 40, 40)
 }
 
+.top {
+    background-color: #009de0;
+    border: black;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0 12px 0;
+    color: white;
+    margin: 0;
+}
+
+#logo-neec-full {
+    width: 18%;
+    position: fixed;
+    margin: 5px;
+}
+
 .card_game{
     padding:5vh;
     background-image: linear-gradient(to left bottom, #24211d, #3b3535);
@@ -26,6 +46,44 @@ body{
   float: left;
   width: 10vh;
   padding: 0 20px;
+}
+
+.container {
+  height: 10px;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.button {
+  background-color: #009de0;
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 8px;
+  transition-duration: 0.3s;
+}
+
+.button:hover {
+  background-color: #006692;
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 /*cartas*/

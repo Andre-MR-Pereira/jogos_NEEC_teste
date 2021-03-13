@@ -40,7 +40,19 @@ async function board_state(matched, pairs, ids) {
         item.removeEventListener('click', transform);
         item.removeEventListener('click', increment_move);
     } else {
-        await sleep(2000);
+        for (var i = 0; i < cards.length; i++) {
+            var item = document.getElementById(i);
+            if (i != ids[0] && i != ids[1]) {
+                item.style.pointerEvents = "none";
+            }
+        }
+        await sleep(800);
+        for (var i = 0; i < cards.length; i++) {
+            var item = document.getElementById(i);
+            if (i != ids[0] && i != ids[1]) {
+                item.style.pointerEvents = null;
+            }
+        }
         transform(ids[0]);
         transform(ids[1]);
     }
@@ -49,7 +61,7 @@ async function board_state(matched, pairs, ids) {
         final_time = Date.now() - initial_time;
         final_moves = moves;
         var item = document.getElementsByClassName("stats");
-        item[item.length - 1].innerHTML += '<div class="final">RESULTADOS FINAIS: ' + final_time + ' ms</div>';
+        item[item.length - 1].innerHTML += '<div class="final">RESULTADO FINAL: ' + final_time + ' ms</div>';
         document.getElementById("tempo").innerHTML = timeToString(final_time);
         document.getElementById("movimentos").innerHTML = final_moves;
         document.getElementById("legenda_tempo").innerHTML = "";
@@ -90,6 +102,13 @@ function start_card_game() {
             increment_move(cards[item.id], item.id)
         })
     });
+
+    for (var i = 0; i < cards.length; i++) {
+        var item = document.getElementById(i);
+        if (i != ids[0] && i != ids[1]) {
+            item.style.pointerEvents = "none";
+        }
+    }
 }
 
 function transform(id) {
@@ -123,10 +142,21 @@ function shuffle(array) {
     return array;
 }
 
-var temporizador = setInterval(function printTime() {
-    let elapsedTime = Date.now() - initial_time;
-    document.getElementById("tempo").innerHTML = Math.floor(elapsedTime / 1000);
-}, 1000);
+function start_time() {
+    initial_time = Date.now();
+    var temporizador = setInterval(function printTime() {
+        let elapsedTime = Date.now() - initial_time;
+        document.getElementById("tempo").innerHTML = Math.floor(elapsedTime / 1000);
+    }, 1000);
+    for (var i = 0; i < cards.length; i++) {
+        var item = document.getElementById(i);
+        if (i != ids[0] && i != ids[1]) {
+            item.style.pointerEvents = null;
+        }
+    }
+    var item = document.getElementById("start_btn");
+    item.style.display = "none";
+}
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
