@@ -6,6 +6,7 @@ var cards = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10,
 initial_time = Date.now();
 final_time = 0;
 final_moves = 0;
+hide_time = true;
 
 function increment_move(card, id) {
     if (ids.length == 0 || (ids.length == 1 && id != ids[0])) {
@@ -144,10 +145,6 @@ function shuffle(array) {
 
 function start_time() {
     initial_time = Date.now();
-    var temporizador = setInterval(function printTime() {
-        let elapsedTime = Date.now() - initial_time;
-        document.getElementById("tempo").innerHTML = Math.floor(elapsedTime / 1000);
-    }, 1000);
     for (var i = 0; i < cards.length; i++) {
         var item = document.getElementById(i);
         if (i != ids[0] && i != ids[1]) {
@@ -156,7 +153,16 @@ function start_time() {
     }
     var item = document.getElementById("start_btn");
     item.style.display = "none";
+    hide_time = false;
 }
+
+var temporizador = setInterval(function printTime() {
+    let elapsedTime = Date.now() - initial_time;
+    var item = document.getElementById("tempo");
+    if (hide_time == false) {
+        document.getElementById("tempo").innerHTML = Math.floor(elapsedTime / 1000);
+    }
+}, 1000);
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
